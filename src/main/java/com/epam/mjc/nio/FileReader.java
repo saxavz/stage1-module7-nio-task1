@@ -2,6 +2,7 @@ package com.epam.mjc.nio;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
 import java.nio.channels.Channels;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -18,7 +19,7 @@ public class FileReader {
             while((rawLine = bf.readLine()) != null) {
                 setProfileAttrs(rawLine, p);
             }
-        } catch (Exception e){
+        } catch (IOException e){
             throw new RuntimeException(e);
         }
         return p;
